@@ -36,7 +36,7 @@ def main(dataset, argv=None):
              ([3000, 6000, 12000] if args.size_grid else [6000]))
     out = Path(args.output).expanduser().resolve() if args.output else ROOT / (
         f'validation_runs/smoke_{dataset}' if args.smoke else
-        f'results_{dataset}_const_validation_v1' + ('_sizes' if args.size_grid else ''))
+        f'results_{dataset}_const_validation' + ('_sizes' if args.size_grid else ''))
     flags = ['--dataset', dataset, '--output', str(out), '--n-rows', *map(str, sizes),
              '--seeds', *map(str, seeds), '--eval-rows', str(plan['default_eval_rows']),
              '--threads', str(args.threads)]

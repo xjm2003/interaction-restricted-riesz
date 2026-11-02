@@ -4,6 +4,6 @@ from pathlib import Path
 import argparse
 from cvd_real import print_report
 p = argparse.ArgumentParser()
-p.add_argument('output', nargs='?', default=str(Path(__file__).resolve().parent/'results_cvd_real_v1'))
+p.add_argument('output', nargs='?', default=str(Path(__file__).resolve().parent/'results_cvd_real'))
 a = p.parse_args()
 print_report(Path(a.output).expanduser())

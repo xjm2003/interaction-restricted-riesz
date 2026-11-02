@@ -314,7 +314,7 @@ def run_one(engine, data, mu, probabilities, truth, qids, catalog, plan, args,
 def main(dataset=None, argv=None):
     args = arguments(dataset, argv)
     out = Path(args.output).expanduser().resolve() if args.output else ROOT / (
-        f'software_smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_ablation_v1')
+        f'software_smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_ablation')
     if out == ROOT or out.is_relative_to(ENGINE) or ROOT.is_relative_to(out):
         raise IntegrityError('Output cannot overwrite the package, frozen engine, or a package ancestor.')
     if args.report_only:

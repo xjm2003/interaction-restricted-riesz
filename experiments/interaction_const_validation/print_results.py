@@ -111,7 +111,7 @@ def main(argv=None):
     ap.add_argument('--all',action='store_true',help='Print without pauses.')
     ap.add_argument('--page',type=int);ap.add_argument('--exploratory',action='store_true')
     a=ap.parse_args(argv)
-    paths=[Path(x) for x in a.results] or [ROOT/f'results_{ds}_const_validation_v1' for ds in ['cvd','phq9']]
+    paths=[Path(x) for x in a.results] or [ROOT/f'results_{ds}_const_validation' for ds in ['cvd','phq9']]
     pages=[]
     for path in paths:
         if a.results or (path/'manifest.json').is_file():pages+=pages_for(path,a.exploratory,a.details)

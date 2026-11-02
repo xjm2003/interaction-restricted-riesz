@@ -62,18 +62,18 @@ def find_reference(dataset, explicit=None):
     if explicit:
         path = Path(explicit).expanduser().resolve()
         if not (path / 'manifest.json').exists():
-            path = path / f'results_{dataset}_const_validation_v1'
+            path = path / f'results_{dataset}_const_validation'
         if not (path / 'manifest.json').is_file():
             raise IntegrityError('No reference manifest under --reference.')
         return path
     candidates = [
-        Path.home() / 'interaction_const_validation_v1' / f'results_{dataset}_const_validation_v1',
-        Path.home() / f'results_{dataset}_const_validation_v1',
-        ROOT.parent / 'interaction_const_validation_v1' / f'results_{dataset}_const_validation_v1',
+        Path.home() / 'interaction_const_validation' / f'results_{dataset}_const_validation',
+        Path.home() / f'results_{dataset}_const_validation',
+        ROOT.parent / 'interaction_const_validation' / f'results_{dataset}_const_validation',
     ]
     found = list(dict.fromkeys(path.resolve() for path in candidates if (path / 'manifest.json').is_file()))
     if len(found) != 1:
-        raise IntegrityError('Specify --reference /path/to/results_' + dataset + '_const_validation_v1')
+        raise IntegrityError('Specify --reference /path/to/results_' + dataset + '_const_validation')
     return found[0]
 
 def read_reference(reference, dataset, n, seeds):

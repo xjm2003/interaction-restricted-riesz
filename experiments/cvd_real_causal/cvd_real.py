@@ -651,7 +651,7 @@ def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input',help='CVD input file; defaults to CVD_DATA_PATH when set.')
     p.add_argument('--member',default='strict_cohort2/all_data.csv')
-    p.add_argument('--output',default=str(Path(__file__).resolve().parent/'results_cvd_real_v1'))
+    p.add_argument('--output',default=str(Path(__file__).resolve().parent/'results_cvd_real'))
     p.add_argument('--accept-working-assumptions',action='store_true',help='Run a research fit under the documented, not clinically verified, field definitions.')
     p.add_argument('--propensity',nargs='+',choices=['logit','hgb'],default=['logit','hgb'])
     p.add_argument('--hazard-learner',choices=['poisson','hgb'],default='hgb')

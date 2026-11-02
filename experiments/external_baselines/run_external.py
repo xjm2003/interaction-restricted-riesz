@@ -212,7 +212,7 @@ def run_one(engine,data,mu,p,truth,qids,cat,plan,args,out,seed,n,reference):
 
 def main(dataset=None,argv=None):
     args=arguments(dataset,argv)
-    out=Path(args.output).expanduser().resolve() if args.output else ROOT/(f'software_smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_external_v1')
+    out=Path(args.output).expanduser().resolve() if args.output else ROOT/(f'software_smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_external')
     if out==ROOT or out.is_relative_to(ENGINE):raise IntegrityError('Output cannot overwrite the package or frozen engine.')
     if args.report_only:
         from ext_report import summarize,display

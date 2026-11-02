@@ -379,7 +379,7 @@ def main(argv=None):
     from analysis_summary import summarize
     args=parse(argv)
     out=Path(args.output) if args.output else ROOT/(
-        f'validation_runs/smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_projection_abc_v1')
+        f'validation_runs/smoke_{args.dataset}' if args.smoke else f'results_{args.dataset}_projection_abc')
     with threadpool_limits(limits=args.threads):
         say('Reading original empirical design; missing real files do NOT trigger mock fallback.')
         data,steps,p,pbar,phi,feature_info=load_design(args.dataset,args.input,args.member,args.phq_root,args.smoke,patients=320)

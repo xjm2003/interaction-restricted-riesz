@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print verified summaries from an interaction_ablation_v1 output directory."""
+"""Print verified summaries from an interaction_ablation output directory."""
 from pathlib import Path
 import argparse
 from ablation_report import summarize, display
@@ -11,7 +11,7 @@ def main():
     parser.add_argument('--all-rows', action='store_true', help='Include all five score procedures.')
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
-    outputs = [args.output.expanduser()] if args.output else [root/f'results_{d}_ablation_v1' for d in ('cvd','phq9')]
+    outputs = [args.output.expanduser()] if args.output else [root/f'results_{d}_ablation' for d in ('cvd','phq9')]
     found = False
     for out in outputs:
         if (out/'manifest.json').is_file():

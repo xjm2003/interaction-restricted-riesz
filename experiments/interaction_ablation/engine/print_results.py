@@ -108,7 +108,7 @@ def main(argv=None):
     p.add_argument('--page',type=int,help='Print only this 1-based page.')
     args=p.parse_args(argv)
     roots=[Path(x) for x in args.directories] if args.directories else [
-        ROOT/'results_cvd_projection_abc_v1',ROOT/'results_phq9_projection_abc_v1']
+        ROOT/'results_cvd_projection_abc',ROOT/'results_phq9_projection_abc']
     pages=[page for r in roots for page in pages_for(r,args.details)]
     if args.page is not None:
         if args.page<1 or args.page>len(pages):p.error('Page number outside available pages.')
